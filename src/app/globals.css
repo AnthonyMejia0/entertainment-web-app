@@ -1,26 +1,104 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-blue-950: #10141e;
+  --color-blue-900: #161d2f;
+  --color-blue-500: #5a698f;
+  --color-red-500: #fc4747;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100dvh;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+}
+
+.p1 {
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: -0.5px;
+  font-weight: 400;
+}
+
+.p1-mobile {
+  font-size: 20px;
+  line-height: 125%;
+  letter-spacing: -0.3px;
+}
+
+.p2-med {
+  font-size: 24px;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 500;
+}
+
+.p2-light {
+  font-size: 24px;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 400;
+}
+
+.p2-mobile {
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 400;
+}
+
+.p3 {
+  font-size: 18px;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 500;
+}
+
+.p3-mobile {
+  font-size: 15px;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 500;
+}
+
+.p4 {
+  font-size: 15px;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 400;
+}
+
+.p4-mobile {
+  font-size: 14px;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 500;
+}
+
+.p5 {
+  font-size: 13px;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 400;
+}
+
+.p5-mobile {
+  font-size: 12px;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 400;
+}
+
+.p6-mobile {
+  font-size: 11px;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 400;
 }
