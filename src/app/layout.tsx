@@ -22,7 +22,7 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} h-full min-h-dvh antialiased`}
     >
-      <body className="flex flex-col">{children}</body>
+      <body className="h-dvh bg-blue-950 overflow-hidden">{children}</body>
     </html>
   );
 }

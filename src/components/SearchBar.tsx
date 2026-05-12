@@ -17,7 +17,7 @@ function SearchBar() {
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
         placeholder="Search for movies or TV series"
-        className="p2-light text-white w-full pl-12"
+        className="p2-light text-white w-full pl-12 outline-none"
       />
     </div>
   );

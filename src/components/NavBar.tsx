@@ -13,7 +13,7 @@ function NavBar() {
   const pathname = usePathname();
 
   return (
-    <div className=" flex flex-row justify-between lg:justify-start lg:space-y-18 items-center lg:flex-col w-full lg:w-24 h-14 md:h-18 lg:h-full lg:max-h-240 md:rounded-[10px] lg:rounded-[20px] bg-blue-900 p-4 md:p-5 lg:p-7">
+    <div className="flex flex-row justify-between lg:justify-start lg:space-y-18 items-center lg:flex-col w-full lg:w-24 h-14 md:h-18 lg:h-full lg:max-h-240 md:rounded-[10px] lg:rounded-[20px] bg-blue-900 p-4 md:p-5 lg:p-7">
       <Link href={routes.HOME}>
         <Logo />
       </Link>
