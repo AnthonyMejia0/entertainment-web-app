@@ -2,6 +2,7 @@ import { create } from 'zustand';
 
 type SearchStoreState = {
   input: string;
+  clearInput: () => void;
 };
 
 type SearchStoreActions = {
@@ -17,4 +18,5 @@ export const useSearchStore = create<SearchStore>()((set) => ({
       input: search,
     }));
   },
+  clearInput: () => set({ input: '' }),
 }));

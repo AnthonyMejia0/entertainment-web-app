@@ -4,7 +4,8 @@ import NavBar from '@/components/NavBar';
 import SearchBar from '@/components/SearchBar';
 import SearchResults from '@/components/SearchResults';
 import { useSearchStore } from '@/stores/search-store';
-import React from 'react';
+import { usePathname } from 'next/navigation';
+import React, { useEffect } from 'react';
 
 type HomeLayoutProps = {
   children: React.ReactNode;
@@ -12,6 +13,12 @@ type HomeLayoutProps = {
 
 function HomeLayout({ children }: HomeLayoutProps) {
   const search = useSearchStore((s) => s.input);
+  const clearSearch = useSearchStore((s) => s.clearInput);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    clearSearch();
+  }, [pathname, clearSearch]);
 
   return (
     <div className="h-dvh w-full flex flex-col lg:flex-row overflow-hidden bg-blue-950">

@@ -6,44 +6,23 @@ const TMDB_TOKEN = process.env.NEXT_PUBLIC_TMDB_BEARER_TOKEN;
 
 const tmdb = new TMDB(TMDB_TOKEN!);
 
-export const getMovies = cache(async () => {
-  const movies = await tmdb.discover.movie({
-    region: 'US',
-    include_adult: false,
-    with_original_language: 'en',
-    with_origin_country: 'US',
-    sort_by: 'popularity.desc',
-  });
-
-  const detailedMovies = await Promise.all(
-    movies.results.map(async (movie) => {
-      const releaseDates = (
-        await tmdb.movies.release_dates({
-          movie_id: movie.id,
-        })
-      ).results;
-
-      const usRelease = releaseDates.find(
-        (release) => release.iso_3166_1 === 'US',
-      );
-
-      const certification = usRelease?.release_dates.find(
-        (date) => date.certification,
-      )?.certification;
-
-      return {
-        id: movie.id,
-        mediaType: MediaTypes.movie,
-        title: movie.title,
-        overview: movie.overview,
-        poster: movie.poster_path,
-        backdrop: movie.backdrop_path,
-        rating: movie.vote_average,
-        releaseDate: movie.release_date,
-        certification,
-      };
-    }),
+export const getMovies = cache(async (pages = 1) => {
+  const responses = await Promise.all(
+    Array.from({ length: pages }, (_, i) =>
+      tmdb.discover.movie({
+        page: i + 1,
+        region: 'US',
+        include_adult: false,
+        with_original_language: 'en',
+        with_origin_country: 'US',
+        sort_by: 'popularity.desc',
+      }),
+    ),
   );
 
-  return detailedMovies as Media[];
+  return Array.from(
+    new Map(
+      responses.flatMap((res) => res.results).map((movie) => [movie.id, movie]),
+    ).values(),
+  );
 });
