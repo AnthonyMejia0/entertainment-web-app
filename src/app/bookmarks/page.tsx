@@ -37,7 +37,11 @@ export default function Bookmarks() {
             </h1>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4 md:gap-10 pr-4 md:pr-6.25 lg:pr-9">
               {movies.map((movie) => (
-                <MediaPreview key={movie.id} media={movie} />
+                <MediaPreview
+                  key={movie.id}
+                  mediaId={movie.id}
+                  mediaType={movie.mediaType}
+                />
               ))}
             </div>
           </>
@@ -48,8 +52,12 @@ export default function Bookmarks() {
               Bookmarked TV Series
             </h1>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4 md:gap-10 pr-4 md:pr-6.25 lg:pr-9">
-              {shows.map((movie) => (
-                <MediaPreview key={movie.id} media={movie} />
+              {shows.map((show) => (
+                <MediaPreview
+                  key={show.id}
+                  mediaId={show.id}
+                  mediaType={show.mediaType}
+                />
               ))}
             </div>
           </>

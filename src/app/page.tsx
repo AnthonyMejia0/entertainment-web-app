@@ -10,11 +10,16 @@ export default async function Home() {
 
   return (
     <HomeLayout>
-      <div className={`w-full h-full`}>
+      <div className={`w-full h-auto`}>
         <h1 className="p1 text-white mb-4 md:mb-6">Trending</h1>
         <div className="flex flex-row space-x-4 md:space-x-10 max-w-full overflow-x-scroll pr-4 md:pr-6.25 lg:pr-9">
           {trending.map((media) => (
-            <MediaPreview key={media.id} media={media} isTrending />
+            <MediaPreview
+              key={media.id}
+              mediaId={media.id}
+              mediaType={media.media_type}
+              isTrending
+            />
           ))}
         </div>
         <h1 className="p1 text-white mb-4 md:mb-6 mt-6 md:mt-10">
@@ -22,7 +27,11 @@ export default async function Home() {
         </h1>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4 md:gap-10 pr-4 md:pr-6.25 lg:pr-9">
           {recommended.map((media) => (
-            <MediaPreview key={media.id} media={media} />
+            <MediaPreview
+              key={media.id}
+              mediaId={media.id}
+              mediaType={media.media_type}
+            />
           ))}
         </div>
       </div>

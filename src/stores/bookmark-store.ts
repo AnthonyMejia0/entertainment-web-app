@@ -8,7 +8,7 @@ type BookmarkStoreState = {
 };
 
 type BookmarkStoreActions = {
-  toggleBookmark: (id: number, type: MediaType) => void;
+  toggleBookmark: (id: number, type: 'movie' | 'tv' | 'person') => void;
   clearBookmarks: () => void;
 };
 
